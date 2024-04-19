@@ -4,26 +4,27 @@ import { IoMdSearch } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa";
 import DarkMode from "./DarkMode";
+import { Link } from "react-router-dom";
 
 const Menu = [
   {
     id: 1,
     name: "Home",
-    link: "/#",
+    link: "/",
   },
   {
     id: 2,
-    name: "Top Rated",
-    link: "/#services",
+    name: "Product",
+    link: "/Product",
   },
   {
     id: 3,
-    name: "Kids Wear",
+    name: "Man Wear",
     link: "/#",
   },
   {
     id: 3,
-    name: "Mens Wear",
+    name: "Women Wear",
     link: "/#",
   },
   {
@@ -76,7 +77,7 @@ const Navbar = ({ handleOrderPopup }) => {
             </div>
 
             {/* order button */}
-            <button
+            <Link to="/cart"
               onClick={() => handleOrderPopup()}
               className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white  py-1 px-4 rounded-full flex items-center gap-3 group"
             >
@@ -84,7 +85,7 @@ const Navbar = ({ handleOrderPopup }) => {
                 Order
               </span>
               <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
-            </button>
+            </Link>
 
             {/* Darkmode Switch */}
             <div>
@@ -96,8 +97,8 @@ const Navbar = ({ handleOrderPopup }) => {
       {/* lower Navbar */}
       <div data-aos="zoom-in" className="flex justify-center">
         <ul className="sm:flex hidden items-center gap-4">
-          {Menu.map((data) => (
-            <li key={data.id}>
+          {Menu.map((data , index) => (
+            <li key={index}>
               <a
                 href={data.link}
                 className="inline-block px-4 hover:text-primary duration-200"
